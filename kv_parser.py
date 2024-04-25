@@ -12,8 +12,8 @@ def get_kv_map(file_name):
         print('Image loaded', file_name)
 
     # process using image bytes
-    session = boto3.Session(profile_name='profile-name')
-    client = session.client('textract', region_name='region')
+    session = boto3.Session(profile_name='default')
+    client = session.client('textract', region_name='ap-southeast-2')
     response = client.analyze_document(Document={'Bytes': bytes_test}, FeatureTypes=['FORMS'])
 
     # Get the text blocks
